@@ -1,5 +1,5 @@
 return {
-    "git@github.com:nvim-tree/nvim-tree.lua.git",
+    "https://github.com/nvim-tree/nvim-tree.lua.git",
     name = "nvim-tree",
     config = function()
         require("nvim-tree").setup({})
