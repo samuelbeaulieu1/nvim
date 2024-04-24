@@ -26,9 +26,12 @@ return {
         require("mason").setup()
         require("mason-lspconfig").setup({
             ensure_installed = {
+                "emmet_ls",
                 "lua_ls",
                 "rust_analyzer",
                 "gopls",
+                "eslint",
+                "tsserver",
             },
             handlers = {
                 function(server_name) -- default handler (optional)
@@ -44,7 +47,7 @@ return {
                         capabilities = capabilities,
                         settings = {
                             Lua = {
-				    runtime = { version = "Lua 5.1" },
+                                runtime = { version = "Lua 5.1" },
                                 diagnostics = {
                                     globals = { "vim", "it", "describe", "before_each", "after_each" },
                                 }
