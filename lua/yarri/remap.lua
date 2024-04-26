@@ -13,8 +13,6 @@ vim.keymap.set("n", "<S-Down>", "<C-d>zz_")
 vim.keymap.set("n", "<S-Up>", "<C-u>zz_")
 vim.keymap.set("i", "<S-Left>", "<Esc>_i")
 vim.keymap.set("i", "<S-Right>", "<Esc>$a")
-vim.keymap.set("n", "<S-Left>", "_")
-vim.keymap.set("n", "<S-Right>", "$")
 vim.keymap.set("n", "<C-Down>", "<C-d>zz")
 vim.keymap.set("n", "<C-Up>", "<C-u>zz")
 vim.keymap.set("n", "<C-Left>", "b")
@@ -22,6 +20,11 @@ vim.keymap.set("n", "<C-Right>", "e")
 vim.keymap.set("n", "n", "nzzzv")
 vim.keymap.set("n", "N", "Nzzzv")
 vim.keymap.set("n", "<BS><BS>", "db")
+
+vim.keymap.set({"n", "o"}, ".", "$");
+vim.keymap.set({"n", "o"}, ",", "_");
+vim.keymap.set({"n", "o"}, "<S-Left>", "_")
+vim.keymap.set({"n", "o"}, "<S-Right>", "$")
 
 -- greatest remap ever - pastes and doesnt replace copied text
 vim.keymap.set("x", "<leader>p", [["_dP]])
@@ -65,3 +68,6 @@ vim.keymap.set("n", "<C-s>", ":w<CR>")
 
 -- Remap to quit faster
 vim.keymap.set("n", "<leader>q", ":q!<CR>")
+
+-- Remap esc lol
+vim.keymap.set("n", "<C-c>", "<Esc>")
