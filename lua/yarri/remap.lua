@@ -4,6 +4,8 @@ vim.g.mapleader = " "
 -- Move selection and indent
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
+vim.keymap.set("v", "<C-Down>", ":m '>+1<CR>gv=gv")
+vim.keymap.set("v", "<C-Up>", ":m '<-2<CR>gv=gv")
 
 -- Movement remaps
 vim.keymap.set("n", "J", "mzJ`z")
@@ -71,3 +73,14 @@ vim.keymap.set("n", "<leader>q", ":q!<CR>")
 
 -- Remap esc lol
 vim.keymap.set("n", "<C-c>", "<Esc>")
+
+-- window management remap
+vim.keymap.set("n", "<leader>w<Up>", ":wincmd k<CR>")
+vim.keymap.set("n", "<leader>w<Down>", ":wincmd j<CR>")
+vim.keymap.set("n", "<leader>w<Left>", ":wincmd h<CR>")
+vim.keymap.set("n", "<leader>w<Right>", ":wincmd l<CR>")
+
+vim.keymap.set("n", "<leader>wq<Up>", ":wincmd k<CR>:q!<CR>")
+vim.keymap.set("n", "<leader>wq<Down>", ":wincmd j<CR>:q!<CR>")
+vim.keymap.set("n", "<leader>wq<Left>", ":wincmd h<CR>:q!<CR>")
+vim.keymap.set("n", "<leader>wq<Right>", ":wincmd l<CR:q!<CR>>")
