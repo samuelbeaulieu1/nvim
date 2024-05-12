@@ -31,7 +31,7 @@ return {
         end
     },
     {
-        "https://github.com/nvim-tree/nvim-tree.lua.git",
+        "https://github.com/navarasu/onedark.nvim.git",
         name = "onedark",
         config = function()
             require("onedark").setup({

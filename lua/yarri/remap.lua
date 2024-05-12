@@ -60,9 +60,9 @@ vim.keymap.set(
 vim.keymap.set("n", "<leader>mr", "<cmd>CellularAutomaton make_it_rain<CR>");
 
 -- Source file
-vim.keymap.set("n", "<leader><leader>", function()
-    vim.cmd("so")
-end)
+-- vim.keymap.set("n", "<leader><leader>", function()
+--     vim.cmd("so")
+-- end)
 
 -- Saving
 vim.keymap.set("i", "<C-s><C-s>", "<Esc>:w<CR>l")
