@@ -22,16 +22,24 @@ return {
             vim.lsp.protocol.make_client_capabilities(),
             cmp_lsp.default_capabilities())
 
+        local root = vim.fs.dirname(vim.fs.find('project.godot', { upward = true })[1])
+        local pipe = [[\\.\pipe\godot.pipe]]
+        require("lspconfig").gdscript.setup({
+            cmd = { "ncat", "127.0.0.1", "6005" },
+            root_dir = function()
+                return root
+            end,
+            on_attach = function(client, bufnr)
+                vim.api.nvim_command([[echo serverstart(']] .. pipe .. [[')]])
+            end
+        })
+
         require("fidget").setup({})
         require("mason").setup()
         require("mason-lspconfig").setup({
             ensure_installed = {
-                "emmet_ls",
                 "lua_ls",
                 "rust_analyzer",
-                "gopls",
-                "eslint",
-                "tsserver",
             },
             handlers = {
                 function(server_name) -- default handler (optional)
