@@ -22,6 +22,18 @@ return {
             vim.lsp.protocol.make_client_capabilities(),
             cmp_lsp.default_capabilities())
 
+        local root = vim.fs.dirname(vim.fs.find({'project.godot', '.git'}, { upward = true })[1])
+        local pipe = '/tmp/godot.pipe'
+        local port = os.getenv("GDScript_Port") or "6005"
+        require("lspconfig").gdscript.setup({
+            name = "Godot",
+            cmd = vim.lsp.rpc.connect("127.0.0.1", port),
+            root_dir = root,
+            on_attach = function(client, bufnr)
+                vim.api.nvim_command('echo serverstart("' .. pipe .. '")')
+            end
+        })
+
         require("fidget").setup({})
         require("mason").setup()
         require("mason-lspconfig").setup({
